@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", fetchTasks)
 // frontend fetches something from server (tells server to do something)
 // DOMContentLoaded means this happens every time we refresh
 function fetchTasks() {
-    fetch("http://localhost:3000/tasks")
+    fetch("https://todolist-4zo9.onrender.com/tasks")
     .then((response) => response.json())
     .then((tasks) => { 
         const taskList = document.getElementById("taskList");
@@ -49,7 +49,7 @@ function fetchTasks() {
 }
 
 function addTaskToBackend(task) {
-    fetch("http://localhost:3000/tasks", {
+    fetch("https://todolist-4zo9.onrender.com/tasks", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -79,10 +79,12 @@ function addTaskToList(task) {
 }
 
 function deleteTaskFromBackend(taskId, taskElement) {
-    fetch(`http://localhost:3000/tasks/${taskId}`, {
+    fetch(`https://todolist-4zo9.onrender.com/${taskId}`, {
         method: "DELETE" // in this route, find the task with this particular ID
     }).then(() => {
         taskElement.remove();
     });
 }
+
+// change all localhost:3000 to the new link where we are hosting the backend
 
